@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paranoid Brother | Oshun</title>
+  <style>
+    :root {
+      --bg: #080808;
+      --panel: #111;
+      --gold: #c49a4e;
+      --gold-soft: #b58f3f;
+      --text: #f4f1e6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a 0%, #050505 60%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 16px;
+      background: rgba(0, 0, 0, .45);
+      border: 1px solid rgba(196, 154, 78, .2);
+      border-radius: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mark {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(196, 154, 78, .9), rgba(118, 87, 44, .55));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: #111;
+      letter-spacing: -1px;
+      font-size: 1.3rem;
+      box-shadow: 0 0 18px rgba(196, 154, 78, .2);
+    }
+
+    .brand h1 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .brand p {
+      color: var(--gold-soft);
+      font-size: .95rem;
+      margin-top: 4px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: .25s;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background: rgba(196, 154, 78, .12);
+      color: var(--gold);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .hero-text {
+      padding: 24px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(196, 154, 78, .18);
+      border-radius: 28px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.7rem;
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .hero-text p {
+      margin-top: 16px;
+      line-height: 1.8;
+      color: #d1c8b0;
+    }
+
+    .hero-text .tag {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 16px;
+      border: 1px solid rgba(196, 154, 78, .35);
+      border-radius: 999px;
+      color: var(--gold-soft);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(196, 154, 78, .18);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+    }
+
+    .hero-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .hero-meta {
+      padding: 20px;
+    }
+
+    .hero-meta h3 {
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+      color: var(--gold);
+    }
+
+    .hero-meta p {
+      line-height: 1.75;
+      color: #d1c8b0;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(196, 154, 78, .15);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    }
+
+    .card header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      color: var(--gold);
+    }
+
+    .card p {
+      padding: 0 22px 20px;
+      color: #c8bfa5;
+      line-height: 1.7;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-top: 56.25%;
+      overflow: hidden;
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+      padding: 0 22px 22px;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(196, 154, 78, .2);
+      color: var(--text);
+      text-decoration: none;
+      transition: .25s;
+      background: rgba(255, 255, 255, .02);
+    }
+
+    .social a:hover {
+      background: rgba(196, 154, 78, .16);
+      color: var(--gold);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 0;
+      color: #8e856d;
+      font-size: .95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .columns {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+
+      .mark {
+        width: 54px;
+        height: 54px;
+        font-size: 1.15rem;
+      }
+
+      nav a {
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="mark">PB</div>
+        <div>
+          <h1>Paranoid Brother</h1>
+          <p>Oshun Ayomide Oluwapelumi</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#media">Media</a>
+        <a href="#jokes">Jokes</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="about">
+      <div class="hero-text">
+        <p class="tag">Dark Knight effect · Lagos State University of Science and Technology</p>
+        <h2>Paranoid Brother</h2>
+        <p>Oshun Ayomide Oluwapelumi is a Computer Science student whose watchful mind and low temper make every simple situation feel like a scene from a thriller. Known across campus as "Paranoid Brother", "AY Biggie" he moves with a sharp eye, a guarded smile, and a sense of humor that turns suspicion into style.</p>
+        <p>At Lagos State University of Science and Technology, he studies systems and code by day, and every quiet corner feels a little too loud by night. His page has the right mix of bold confidence, dark style, and a hint of paranoia.</p>
+      </div>
+      <div class="hero-card">
+        <img src="profile.jpg" alt="Paranoid Brother profile">
+        <div class="hero-meta">
+          <h3>Profile Highlight</h3>
+          <p>Student in Computer Science. Lagos State University of Science and Technology. Loves the dark gold aesthetic, keeps his temper low, and laughs at the idea that someone is always watching his next move.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" class="columns">
+      <div class="card">
+        <header>
+          <h3>Watch</h3>
+          <span>Video</span>
+        </header>
+        <div class="video-wrapper">
+          <video controls poster="profile.jpg">
+            <source src="profile1.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+        </div>
+      </div>
+      <div class="card">
+        <header>
+          <h3>Study Notes</h3>
+          <span>Computer Science</span>
+        </header>
+        <p>Focused on algorithms, systems, and the art of staying calm when everyone else thinks you're overreacting. The blend of paranoia and low temper gives him an edge in debugging problems before they happen.</p>
+      </div>
+    </section>
+
+    <section id="jokes" class="columns">
+      <div class="card">
+        <header>
+          <h3>Paranoid Joke</h3>
+          <span>Humor</span>
+        </header>
+        <p>"I don't always check the door twice, but when I do, it's because someone just blinked suspiciously."</p>
+      </div>
+      <div class="card">
+        <header>
+          <h3>Temper Joke</h3>
+          <span>Reality</span>
+        </header>
+        <p>"My low temper is like a hidden weapon — calm on the surface, but one wrong move and you'll wish you'd never asked."</p>
+      </div>
+    </section>
+
+    <section id="connect">
+      <div class="card">
+        <header>
+          <h3>Connect with Paranoid Brother</h3>
+          <span>Reach Out</span>
+        </header>
+        <p>Find him online, follow the energy, and remember: the best way to get a response is to be direct and a little careful.</p>
+        <div class="social">
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer">Twitter</a>
+          <a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="mailto:oshun@example.com">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built for Paranoid Brother. Dark, gold, responsive, and always alert.
+    </footer>
+  </div>
+</body>
+</html>
