@@ -1,0 +1,2 @@
+import { ShieldCheck } from 'lucide-react'
+export default function Logo(){return <div className="flex items-center gap-3"><div className="h-11 w-11 rounded-2xl bg-cyanGlow/15 border border-cyanGlow/30 flex items-center justify-center"><ShieldCheck className="text-cyanGlow"/></div><div><h1 className="font-black text-lg leading-5">TruthLens AI</h1><p className="text-xs text-slate-400">Fake News Detection</p></div></div>}

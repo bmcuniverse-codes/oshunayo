@@ -1,0 +1,1 @@
+export default function Badge({type}){const c=type==='Fake'?'bg-red-500/15 text-red-300 border-red-400/30':type==='Real'?'bg-emerald-500/15 text-emerald-300 border-emerald-400/30':'bg-amber-500/15 text-amber-300 border-amber-400/30';return <span className={`px-3 py-1 rounded-full border text-xs font-bold ${c}`}>{type}</span>}
