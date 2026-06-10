@@ -6,7 +6,7 @@ A full-stack student project for **Design and Implementation of a Fake News Dete
 
 - Frontend: React, Vite, Tailwind CSS, React Router, Recharts, Lucide Icons
 - Backend: Python Flask
-- Detection: Rule-based demo predictor now, ML-ready backend structure
+- Detection: Rule-based predictor now, ML-ready backend structure, Google News API
 - Auth: Demo/localStorage authentication
 
 ## Folder Structure
@@ -51,4 +51,3 @@ python app.py
 
 ## Notes
 
-The backend currently uses a demo scoring method so the project works immediately. You can later replace it with a trained ML model using TF-IDF and Logistic Regression.
